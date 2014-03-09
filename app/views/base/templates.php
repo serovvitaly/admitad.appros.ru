@@ -1,14 +1,14 @@
 <script id="tpl-product-item-mini" type="text/x-handlebars-template">
-<div class="sri-box rounded white" style="display:none"><div class="rwrapper">
-    <div class="image"><img class="crop" alt="" src="{{picture}}"></div>
+<div class="sri-box" style="display:none"><div class="rwrapper">
+    <div class="rounded white"><div class="image"><img class="crop" alt="" src="{{picture}}"></div></div>
     <div>
-      <div class="name">{{name}}</div>
-      <div>{{advcampaign.name}}</div>
-      <div class="note">{{description}}</div>
-      <div class="price"><span>{{price}} <sup>{{currencyId}}</sup></span></div>     
-    </div>
-    <div class="controls">
-      {{#if delivery}}доставка{{/if}}
+      <div class="name">{{ucfirst name}}</div>
+      <div class="vendor"><a href="#" data-vendor="{{advcampaign.id}}">{{advcampaign.name}}</a> <span class="hint--right" data-hint="Доставка"><img alt="" src="/skins/base/img/1389954042_delivery.png"></span></div>
+      <div class="controls">
+        <span class="hint--top" data-hint="Сравнить"><a class="button button-rounded button-flat-highlight control-compare" href="#"><i class="icon-align-justify"></i></a></span>
+        <span class="hint--top" data-hint="Добавить в избранное"><a class="button button-rounded button-flat-highlight control-favorite" href="#"><i class="icon-star"></i></a></span>
+        <a class="button button-rounded button-flat-primary price" href="#">{{price}} <sup>{{currencyId}}</sup></a>
+      </div>     
     </div>
 </div></div>
 </script>
@@ -23,8 +23,8 @@
           </div>
         </div>
         <div class="span6">
-          <h1 class="title" style="font-weight: 300; margin: 0; font-size: 22px;">{{name}}</h1>
-          <p>{{model}}</p>
+          <h1 class="title">{{name}}</h1>
+          <p>{{model}} ({{id}})</p>
           <p>{{typePrefix}}</p>
           <p>{{param}}</p>
           <div class="description-box" style="line-height: 17px; color: #808080; margin-bottom: 20px;">

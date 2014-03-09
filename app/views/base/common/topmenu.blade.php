@@ -13,7 +13,7 @@
             <a href="./index.html">Home</a>
           </li>
           <li class="">
-            <a href="./getting-started.html">Get started</a>
+            <a href="./getting-started.html">Продукты</a>
           </li>
           <li class="">
             <a href="./scaffolding.html">Scaffolding</a>

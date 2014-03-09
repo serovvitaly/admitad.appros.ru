@@ -13,4 +13,6 @@
 
 Route::controller('api', 'ApiController');
 
+Route::controller('admin', 'AdminController');
+
 Route::controller('/', 'HomeController');

@@ -1,11 +1,6 @@
-/**
-* 
-*/
 function Scarlet(){
     
     var self = this;
-    
-    this.products = new CollectionProducts();
     
     this.resultContainer = $('#exp-result-content');
     
@@ -15,7 +10,30 @@ function Scarlet(){
     
 }
 Scarlet.prototype.init = function(){
-    //
+    Handlebars.registerHelper('ucfirst', function(str) { 
+        var f = str.charAt(0).toUpperCase();
+        return f + str.substr(1, str.length-1);
+    });
+    
+    this.products = new CollectionProducts();
+    
+    // Init Routes
+    this.routes = new Backbone.Router();
+    this.initRoutes();
+    Backbone.history.start();
+    
+}
+Scarlet.prototype.initRoutes = function(){
+    
+    var self = this;
+    
+    this.routes.route('prod/:productId(/)', 'product', function(productId){
+        if (productId > 0) {
+            self.products.getById(productId);
+        }
+        
+        //alert('Продукт не найден');
+    });
 }
 Scarlet.prototype.loadProducts = function(){
     
@@ -31,7 +49,8 @@ Scarlet.prototype.loadProducts = function(){
                 var view = new  ViewProductMini({model:model});
                 view.$el.appendTo(self.resultContainer);
                 view.$el.fadeIn();
-                view.$el.find('.image').imgLiquid();                
+                //view.$el.find('.image').imgLiquid();                
+                view.$el.find('.image').krioImageLoader();                
             }); 
         });
     });
@@ -49,6 +68,9 @@ Scarlet.prototype.hidePreloader = function(preloader, success){
         if (success) success();
     });
 }
+Scarlet.prototype.alert = function(title, message){
+    //
+}
 
 Backbone.sync = function(method, model, options){
     var collection = this;
@@ -57,13 +79,29 @@ Backbone.sync = function(method, model, options){
         dataType: 'json'
     }, options));
 }
-
+ 
 var ModelProduct = Backbone.Model.extend({
     //
 });
 
 var CollectionProducts = Backbone.Collection.extend({
     model: ModelProduct,
+    getById: function(id){
+        var self = this;
+        if (this.length < 1 || !this.get(id)) {
+            this.sync('read', 'product', {
+                data: {
+                    pid: id
+                },
+                success: function(data){                
+                    if (data.results && data.results.length > 0) {
+                        self.add(data.results);
+                    }
+                    if (success) success(data);
+                }
+            });
+        }
+    },
     load: function(success){
         var self = this;
         this.sync('read', 'products', {
@@ -89,10 +127,24 @@ var ViewProductMini = Backbone.View.extend({
         return this;
     },
     events: {
-        'click' : function(){
-            console.log( this.model );
-            
+        'click .vendor a' : function(){
+            console.log(this);
+            alert('Данные о вендоре');
+            return false;
+        },
+        'click .controls .control-compare' : function(){
+            console.log(this);
+            alert('Сравнить');
+            return false;
+        },
+        'click .controls .control-favorite' : function(){
+            console.log(this);
+            alert('Добавить в избранное');
+            return false;
+        },
+        'click .controls .price, .name, .image' : function(){
             var popup = new Scarlet.ViewProductPopup({model: this.model});
+            return false;
         }
     },
     initialize: function(){
@@ -179,16 +231,8 @@ Scarlet.ViewProductPopup = Backbone.View.extend({
         close.click(function(){
             popup.close();
         })
-      /*
-      popup.scroll.click(function(e){
-        var t = $(e.target);
-        if (t.hasClass('playout') || t.parents('.playout').length) return;
-        popup.close();
-      });
-      */
         return popup;
     }
 });
-
 
 var App = new Scarlet();

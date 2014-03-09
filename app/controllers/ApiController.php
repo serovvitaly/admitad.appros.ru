@@ -1,6 +1,8 @@
 <?php
 
 class ApiController extends Controller {
+    
+    protected $_websiteId = '147349'; 
 
     public function getCategories()
     {
@@ -22,16 +24,17 @@ class ApiController extends Controller {
             'limit'  => 500,
             'offset' => 0
         ));
-        $cats2 = AdmAPI::_get('products/categories', 'public_data', array(
+    /*    $cats2 = AdmAPI::_get('products/categories', 'public_data', array(
             'limit'  => 500,
             'offset' => 500
         ));
         $cats3 = AdmAPI::_get('products/categories', 'public_data', array(
             'limit'  => 500,
             'offset' => 1000
-        ));
+        ));     */
         
-        $data = array_merge_recursive($cats1, $cats2, $cats3);
+        //$data = array_merge_recursive($cats1, $cats2, $cats3);
+        $data = array_merge_recursive($cats1);
         
         return $json ? Response::json($data) : $data;
     }
@@ -63,7 +66,7 @@ class ApiController extends Controller {
             //'keyword'    => Input::get('keyword'),
             'campaign'    => Input::get('campaign'),
             'category'    => Input::get('category'),
-        ));
+        )); 
         
         return Response::json($data);
     }
