@@ -44,6 +44,8 @@ class HomeController extends BaseController {
     
     protected function _getCategories()
     {   
+        return array(); // TODO: убрать заглушку
+        
         $necessaryCategories = array(
             312,
             1702,
