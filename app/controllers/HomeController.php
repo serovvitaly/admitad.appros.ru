@@ -7,7 +7,7 @@ class HomeController extends BaseController {
 	public function getIndex()
 	{   
         $this->layout->title = 'Поисковик одежды';
-        
+                   
         //print_r($this->_getCategories());
      
         $this->layout->content = View::make('base.search.index', array(
