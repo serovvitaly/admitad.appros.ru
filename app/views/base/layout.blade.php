@@ -19,7 +19,7 @@
 </head>
 <body>
   @include('base.common.topmenu')
-  <div style="height: 50px;"></div>
+  <div style="height: 30px;"></div>
   <div class="container">
     {{$content}}
     <footer>

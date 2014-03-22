@@ -171,9 +171,9 @@ Scarlet.ViewProductPopup = Backbone.View.extend({
         var popup = { el : $('<div class="popup opening"><div class="background"></div><div class="scroll"><div class="playout"></div></div>') },
             close = $('<div class="cross"></div>');
         
-        popup.layout = popup.el.find('.playout'),
-        popup.background = popup.el.find('.background')
-        popup.scroll = popup.el.find('.scroll')
+        popup.layout     = popup.el.find('.playout');
+        popup.background = popup.el.find('.background');
+        popup.scroll     = popup.el.find('.scroll');
       
         if (cls) popup.el.addClass(cls);
       
@@ -208,13 +208,13 @@ Scarlet.ViewProductPopup = Backbone.View.extend({
         popup.syncSize();
         popup.el.find('img').load(function(){
             popup.syncSize();
-        })
+        });
         popup.el.on('resize', function(){
             popup.syncSize();
-        })
+        });
         $(window).bind('resize.popup', function(){
             popup.syncSize();
-        })
+        });
         popup.close = function() {  
             popup.el.addClass('closing');
             setTimeout(function(){

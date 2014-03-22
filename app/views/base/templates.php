@@ -188,23 +188,6 @@
 </div></div>
 </script>
 
-
-<script id="tpl-hotel-room" type="text/x-jquery-tmpl">
-<div class="hotel-room rwrapper">
-  <div class="hr-sp-6">
-    <strong>${roomTypeDescription}</strong>
-    <div>Максимальная вместимость: ${quotedOccupancy}</div>
-    <a href="#">подробнее</a>
-  </div>
-  <div class="hr-sp-2 hr-right hr-price">
-    ${rateTotal} <sup>${currencyCode}</sup>
-  </div>
-  <div class="hr-sp-2 hr-right">
-    <a href="#" onclick="return false;" class="button button-rounded button-flat-caution button-small">БРОНИРОВАТЬ</a>
-  </div>
-</div>
-</script>
-
 <script id="tpl-book-result" type="text/x-jquery-tmpl">
 <div id="exp-book-result" class="rounded white" style="display:none"><div class="rwrapper">
   <p class="content" style="text-align:center">{{html content}}</p>
