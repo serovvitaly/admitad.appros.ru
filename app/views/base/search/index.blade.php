@@ -21,9 +21,8 @@
             <input type="submit" class="button button-rounded button-flat-caution" onclick="App.loadProducts()" value="Найти одежду">
           </div>
           <div class="btn-group">
-            <button class="btn btn-mini">по цене</button>
-            <button class="btn btn-mini">по рейтингу</button>
-            <button class="btn btn-mini">по звездности</button>
+            <button class="btn btn-rounded">по цене</button>
+            <button class="btn btn-rounded">по рейтингу</button>
           </div>
         </div>
     </div>
