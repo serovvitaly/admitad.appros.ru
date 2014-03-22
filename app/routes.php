@@ -11,6 +11,8 @@
 |
 */
 
+Route::controller('yml', 'YmlController');
+
 Route::controller('api', 'ApiController');
 
 Route::controller('admin', 'AdminController');

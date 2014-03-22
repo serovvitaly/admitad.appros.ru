@@ -22,6 +22,7 @@ Scarlet.prototype.init = function(){
     this.initRoutes();
     Backbone.history.start();
     
+    $('#exp-result-content').masonry();    
 }
 Scarlet.prototype.initRoutes = function(){
     
@@ -41,6 +42,7 @@ Scarlet.prototype.loadProducts = function(){
         preloader = this.newPreloader();
         
     this.resultContainer.html('');
+    $('#exp-result-content').masonry('destroy');
     this.showPreloader(this.resultContainer, preloader);
     
     this.products.load(function(){
@@ -50,8 +52,13 @@ Scarlet.prototype.loadProducts = function(){
                 view.$el.appendTo(self.resultContainer);
                 view.$el.fadeIn();
                 //view.$el.find('.image').imgLiquid();                
-                view.$el.find('.image').krioImageLoader();                
-            }); 
+                view.$el.find('.image').krioImageLoader();                               
+            });
+            
+            $('#exp-result-content').masonry({
+                itemSelector: '.sri-box'
+            });
+             
         });
     });
 }

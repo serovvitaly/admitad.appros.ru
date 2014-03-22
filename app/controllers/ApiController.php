@@ -58,15 +58,7 @@ class ApiController extends Controller {
     
     public function getProducts()
     {        
-        $data = AdmAPI::_get('products/website/147349', 'products_for_website', array(
-            'limit'      => Input::get('limit', 50),
-            'offset'     => Input::get('offset', 0),
-            'price_from' => Input::get('price_from'),
-            'price_to'   => Input::get('price_to'),
-            //'keyword'    => Input::get('keyword'),
-            'campaign'    => Input::get('campaign'),
-            'category'    => Input::get('category'),
-        )); 
+        $data['results'] = json_decode( Offer::take(30)->get()->toJSON() ); 
         
         return Response::json($data);
     }

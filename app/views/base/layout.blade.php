@@ -38,6 +38,7 @@
   <script src="/packages/custombox/src/jquery.custombox.js"></script>
   <script src="/packages/jquery/imgLiquid/js/imgLiquid-min.js"></script>
   <script src="/packages/jquery/krio/jquery.krioImageLoader-min.js"></script>
+  <script src="/packages/jquery/masonry/masonry.pkgd.min.js"></script>
   
   <script src="/requires/handlebars.js"></script>
   <script src="/requires/underscore.js"></script>

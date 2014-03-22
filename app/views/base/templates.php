@@ -1,6 +1,6 @@
 <script id="tpl-product-item-mini" type="text/x-handlebars-template">
-<div class="sri-box" style="display:none"><div class="rwrapper">
-    <div class="rounded white"><div class="image"><img class="crop" alt="" src="{{picture}}"></div></div>
+<div class="sri-box rounded white" style="display:none"><div class="rwrapper">
+    <div class=""><div class="image"><img class="crop" alt="" src="{{picture}}"></div></div>
     <div>
       <div class="name">{{ucfirst name}}</div>
       <div class="vendor"><a href="#" data-vendor="{{advcampaign.id}}">{{advcampaign.name}}</a> <span class="hint--right" data-hint="Доставка"><img alt="" src="/skins/base/img/1389954042_delivery.png"></span></div>

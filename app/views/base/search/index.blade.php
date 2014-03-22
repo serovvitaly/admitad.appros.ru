@@ -9,12 +9,12 @@
     <div class="rounded white sticker" style="margin-bottom: 10px;" id="exp-sort-panel">
         <div class="rwrapper">
           <div class="btn-group">
-            <input type="submit" class="button button-rounded" value="Категории">
-            <input type="submit" class="button button-rounded button-flat-caution" onclick="App.loadProducts()" value="Найти одежду">
-          </div>
-          <div class="btn-group">
             <button class="btn btn-rounded">по цене</button>
             <button class="btn btn-rounded">по рейтингу</button>
+          </div>
+          <input type="text" id="search-input">
+          <div class="btn-group">
+            <input type="submit" class="button button-rounded button-flat-caution" onclick="App.loadProducts()" value="Искать">
           </div>
         </div>
     </div>
