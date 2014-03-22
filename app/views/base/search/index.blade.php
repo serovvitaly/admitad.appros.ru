@@ -3,15 +3,7 @@
   <div class="span12">
     <div class="categories-menu rounded" style="overflow: auto; display: none;">
       <div>
-      <? 
-          $level_1 = '';
-          foreach ($categories AS $category) {
-              if (!isset($category['parent'])) {
-                  $level_1 .= '<div class="category-box"><strong>'.$category['name'].'('.$category['id'].')++</strong></div>';
-              }
-          } 
-      ?>
-      <?= $level_1 ?> 
+      КАТАЛОГ
       </div>
     </div>
     <div class="rounded white sticker" style="margin-bottom: 10px;" id="exp-sort-panel">
